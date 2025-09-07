@@ -147,4 +147,18 @@ public class Card {
 	public boolean isRedCard(){
 		return suit.equals("hearts") || suit.equals("diamonds"); // returns true if a card is part of the red suite
 	}
+
+	public static void main(String[] args){
+		// create two new card objects to be tested
+		Card card1 = new Card(5, "hearts");
+		Card card2 = new Card(1, "spades");
+		
+		//print whether card1 is red and its point value
+		System.out.println("Card 1 is a red card: " + card1.isRedCard());
+		System.out.println("Card 1 is " + card1.getFlippyCardValue() + " points");
+
+		//print whether card2 is red and its point value
+		System.out.println("Card 2 is a red card: " + card2.isRedCard());
+		System.out.println("Card 2 is " + card2.getFlippyCardValue() + " points");
+	}
 }

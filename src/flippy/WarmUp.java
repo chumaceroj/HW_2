@@ -48,10 +48,10 @@ public class WarmUp {
 	* @param array
 	*/
 	public static void reverseArray(String[] array){
-		for (int i = 0; i<array.length/2; i++) {
-			String initialValue = array[i];
-			array[i] = array[array.length -i-1];
-			array[array.length-i-1] = initialValue;
+		for (int i = 0; i<array.length/2; i++) { // loops through half of the array to swap values in the first half with the second half
+			String initialValue = array[i]; // stores value before swap
+			array[i] = array[array.length -i-1]; // changes value in second half of the array
+			array[array.length-i-1] = initialValue; // changes value in first half of the array
 		}
 	}
 
