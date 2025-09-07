@@ -128,8 +128,15 @@ public class Card {
 	 * @return the flippy card value
 	 */
 	public int getFlippyCardValue(){
-		//TODO: Fill in good stuff here!
-		return 0;
+		if (number == 1) { // returns 11 if the card is an Ace
+			return 11;
+		}
+		else if (number >= 11) { // returns 10 if the card is a Jack, Queen, or King
+			return 10;
+		}
+		else { // returns the number of the card if it's between 2-10
+			return number;
+		}
 	}
 	
 	/**
@@ -138,7 +145,6 @@ public class Card {
 	 * @return whether or not the card is red
 	 */
 	public boolean isRedCard(){
-		//TODO: Fill in good stuff here!
-		return false;
+		return suit.equals("hearts") || suit.equals("diamonds"); // returns true if a card is part of the red suite
 	}
 }
