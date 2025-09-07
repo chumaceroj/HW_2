@@ -11,8 +11,15 @@ public class WarmUp {
 	 * @return the number of cards that are hearts
 	 */
 	public static int countHearts(Card[] cards ){
-		// TODO: fill in the method!
-		return -1;
+		int counter = 0;
+
+		for (int i = 0; i<cards.length; i++) { // loops through cards and adds to counter if the card is hearts
+			if (cards[i].getSuit().equals("hearts")) {
+				counter++;
+			}
+		}
+
+		return counter; // returns number of cards that are of the hearts suit in the array cards
 	}
 	
 	/**
@@ -24,18 +31,35 @@ public class WarmUp {
 	 * @return a new array that is the element-wise sum of the input arrays 
 	 */
 	public static double[] addArraysSameLength(double[] array1, double[] array2){
-		// TODO: fill in the method!
-		return null;
+		double[] sumArrays = new double[array1.length]; // creates a new array of doubles
+
+		for (int i = 0; i<array1.length; i++) { // initializes each value of sumArrays by adding together the corresponding values of array1 and array2
+			sumArrays[i] = array1[i] + array2[i];
+		}
+		
+		return sumArrays;
 	}
 	
 		
-	// TODO: write the reverseArray method, including method header and JavaDoc comments
+	/**
+	* Reverses the order of elements in an array of Strings by mutating
+	* elements in the given array
+	*
+	* @param array
+	*/
+	public static void reverseArray(String[] array){
+		for (int i = 0; i<array.length/2; i++) {
+			String initialValue = array[i];
+			array[i] = array[array.length -i-1];
+			array[array.length-i-1] = initialValue;
+		}
+	}
 
 	public static void main(String[] args){
-		/*String[] words = {"I", "love", "my", "CS", "classes", "!"};
+		String[] words = {"I", "love", "my", "CS", "classes", "!"};
 		
 		System.out.println("Before: " + Arrays.toString(words));
 		reverseArray(words);
-		System.out.println("After: " + Arrays.toString(words));*/
+		System.out.println("After: " + Arrays.toString(words));
 	}
 }
