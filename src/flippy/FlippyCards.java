@@ -20,9 +20,19 @@ public class FlippyCards {
 	 * 
 	 * @param numCards number of cards in the game
 	 */
+	
 	public FlippyCards(int numCards){
-		this.cards = new Card[numCards];
+    	this.cards = new Card[numCards];
+
+    	// Create a dealer with 1 deck of 52 cards
+    	CardDealer dealer = new CardDealer(1);
+
+    	// Deal out the cards we need for this game
+    	for (int i = 0; i < numCards; i++) {
+        	this.cards[i] = dealer.next();
+    	}
 	}
+	
 
 	/**
 	 * Returns the flippy card at the given index 
@@ -52,7 +62,7 @@ public class FlippyCards {
 	public int calculateOptimalScore(){
 		int score = 0;
 
-		for (int i = 0; i<cards.length; i++) {
+		for (int i = 0; i<cards.length; i++) { // loops through all cards and adds the values of the red cards
 			if (cards[i].isRedCard()) {
 				score += cards[i].getFlippyCardValue();
 			}
@@ -69,7 +79,8 @@ public class FlippyCards {
 	 */
 	public int faceUpTotal(){
 		int total = 0;
-		for (int i = 0; i<cards.length; i++) {
+
+		for (int i = 0; i<cards.length; i++) { // loops through all the cards and adds the scores for the face-up cards
 			if (cards[i].isFaceUp()) {
 				if (cards[i].isRedCard())
 					total += cards[i].getFlippyCardValue();
@@ -89,7 +100,8 @@ public class FlippyCards {
 	 */
 	public int faceDownTotal(){
 		int total = 0;
-		for (int i = 0; i<cards.length; i++) {
+
+		for (int i = 0; i<cards.length; i++) { // loops through all the cards and adds the scores for the face-down cards
 			if (!cards[i].isFaceUp()) {
 				if (cards[i].isRedCard())
 					total += cards[i].getFlippyCardValue();
@@ -101,7 +113,11 @@ public class FlippyCards {
 		return total;
 	}
 
-
+	/**
+	 * returns the String representation of which cards are flipped up and which cards are flipped down
+	 * 
+	 * @return String representation of cards
+	 */
 	public String toString() {
 		String cardList = "";
 		for (int i = 0; i<cards.length; i++) {
@@ -116,5 +132,26 @@ public class FlippyCards {
 			}
 		}
 		return cardList;
+	}
+
+	public static void main(String[] args){
+		FlippyCards game = new FlippyCards(5);
+    	
+		// Print board
+    	System.out.println(game);
+    	System.out.println("Face up total: " + game.faceUpTotal());
+    	System.out.println("Face down total: " + game.faceDownTotal());
+    	System.out.println("Optimal score: " + game.calculateOptimalScore());
+    	System.out.println();
+
+    	// Flip two cards
+    	game.flipCard(0); // flip Queen of hearts
+    	game.flipCard(1); // flip Jack of clubs
+
+    	System.out.println("After flipping cards 0 and 1:");
+    	System.out.println(game);
+    	System.out.println("Face up total: " + game.faceUpTotal());
+    	System.out.println("Face down total: " + game.faceDownTotal());
+    	System.out.println("Optimal score: " + game.calculateOptimalScore());
 	}
 }
