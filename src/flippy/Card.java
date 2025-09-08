@@ -4,7 +4,7 @@ package flippy;
  * A card class representing a standard playing card with
  * numbers 2-10, Jack, Queen, King, Ace and four suits.
  * 
- *
+ *@author Julian Chumacero
  */
 public class Card {
 	// min/max for the card number range
@@ -130,11 +130,9 @@ public class Card {
 	public int getFlippyCardValue(){
 		if (number == 1) { // returns 11 if the card is an Ace
 			return 11;
-		}
-		else if (number >= 11) { // returns 10 if the card is a Jack, Queen, or King
+		}else if (number >= 11) { // returns 10 if the card is a Jack, Queen, or King
 			return 10;
-		}
-		else { // returns the number of the card if it's between 2-10
+		}else { // returns the number of the card if it's between 2-10
 			return number;
 		}
 	}
@@ -148,6 +146,9 @@ public class Card {
 		return suit.equals("hearts") || suit.equals("diamonds"); // returns true if a card is part of the red suite
 	}
 
+	/**
+	 * Tests functions in Card.java
+	 */
 	public static void main(String[] args){
 		// create two new card objects to be tested
 		Card card1 = new Card(5, "hearts");

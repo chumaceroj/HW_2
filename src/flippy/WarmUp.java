@@ -18,7 +18,6 @@ public class WarmUp {
 				counter++;
 			}
 		}
-
 		return counter; // returns number of cards that are of the hearts suit in the array cards
 	}
 	
@@ -36,7 +35,6 @@ public class WarmUp {
 		for (int i = 0; i<array1.length; i++) { // initializes each value of sumArrays by adding together the corresponding values of array1 and array2
 			sumArrays[i] = array1[i] + array2[i];
 		}
-		
 		return sumArrays;
 	}
 	
@@ -55,6 +53,9 @@ public class WarmUp {
 		}
 	}
 
+	/**
+	 * Tests functions in WarmUp.java
+	 */
 	public static void main(String[] args){
 		String[] words = {"I", "love", "my", "CS", "classes", "!"};
 		

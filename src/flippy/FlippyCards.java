@@ -20,7 +20,6 @@ public class FlippyCards {
 	 * 
 	 * @param numCards number of cards in the game
 	 */
-	
 	public FlippyCards(int numCards){
     	this.cards = new Card[numCards];
 
@@ -32,7 +31,6 @@ public class FlippyCards {
         	this.cards[i] = dealer.next();
     	}
 	}
-	
 
 	/**
 	 * Returns the flippy card at the given index 
@@ -70,7 +68,6 @@ public class FlippyCards {
 		return score;
 	}
 
-
 	/**
 	 * Calculate the flippy card score for the cards that are
 	 * face up.  
@@ -82,9 +79,9 @@ public class FlippyCards {
 
 		for (int i = 0; i<cards.length; i++) { // loops through all the cards and adds the scores for the face-up cards
 			if (cards[i].isFaceUp()) {
-				if (cards[i].isRedCard())
+				if (cards[i].isRedCard()) {
 					total += cards[i].getFlippyCardValue();
-				else {
+				}else {
 					total -= cards[i].getFlippyCardValue();
 				}
 			}
@@ -103,9 +100,9 @@ public class FlippyCards {
 
 		for (int i = 0; i<cards.length; i++) { // loops through all the cards and adds the scores for the face-down cards
 			if (!cards[i].isFaceUp()) {
-				if (cards[i].isRedCard())
+				if (cards[i].isRedCard()){
 					total += cards[i].getFlippyCardValue();
-				else {
+				}else {
 					total -= cards[i].getFlippyCardValue();
 				}
 			}
@@ -123,17 +120,18 @@ public class FlippyCards {
 		for (int i = 0; i<cards.length; i++) {
 			if (cards[i].isFaceUp()) {
 				cardList += cards[i].toString();
-			}
-			else {
+			}else {
 				cardList += "FACE-DOWN";
-			}
-			if (i<cards.length-1) {
+			}if (i<cards.length-1) {
 				cardList += " | ";
 			}
 		}
 		return cardList;
 	}
 
+	/**
+	 * Tests functions in FlippyCards.java
+	 */
 	public static void main(String[] args){
 		FlippyCards game = new FlippyCards(5);
     	
@@ -145,8 +143,8 @@ public class FlippyCards {
     	System.out.println();
 
     	// Flip two cards
-    	game.flipCard(0); // flip Queen of hearts
-    	game.flipCard(1); // flip Jack of clubs
+    	game.flipCard(0); 
+    	game.flipCard(1);
 
     	System.out.println("After flipping cards 0 and 1:");
     	System.out.println(game);
